@@ -8,7 +8,7 @@ import { map } from 'rxjs/operators';
 export class ConfigService {
   constructor(private http: HttpClient) { }
 
-    configUrl = 'http://localhost:8081/api/v1/lc';
+    configUrl = 'http://108.61.69.15:8081/api/v1/lc';
 
     getResults(q: string): Observable<Array<string>>  {
         return this.http.get<Array<string>>(this.configUrl, { params: { query : q} }).pipe(
