@@ -17,7 +17,6 @@ export class AppComponent {
     console.log(this.query)
     this.configService.getResults(this.query)
     .subscribe((data: Array<string>) => {
-      
       this.results = data.length > 0 ? data : ["error"];
    });
     
