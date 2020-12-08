@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ConfigService } from './config/config.service'
+
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,19 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'lc-web';
+  title = 'Lambda calculus interpreter';
+  results : Array<string> = [];
+  query: string = "";
+  constructor(private configService: ConfigService) {}
+
+  run() {
+    console.log(this.query)
+    this.configService.getResults(this.query)
+    .subscribe((data: Array<string>) => {
+      console.log(data);
+      this.results = data;
+   });
+    
+  }
+
 }
