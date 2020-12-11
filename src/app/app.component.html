@@ -10,6 +10,7 @@
 
     </head>
     <body>
+
         <div class="terminal-nav">
             <div class="terminal-logo">
               <div class="logo terminal-prompt"><a href="#" class="no-style">λ</a> Calculus Interpreter
@@ -18,12 +19,26 @@
             </div>
         </div>
 
-        <div class="terminal-alert" style="margin-left: 0.5em;margin-right: 0.5em; ">Examples
-            <ul>
+
+        <pre class="terminal-alert" style="margin-left: 0.5em;margin-right: 0.5em; "> <strong>BNF:</strong>
+    <strong>exprs:</strong>  constant  
+            | variable
+            | "(" exprs exprs ")"
+            | "(" "lambda" variable+ "." exprs ")"
+
+    <strong>constant:</strong>
+            number
+            |  "(" "lambda" variable+ "." exprs ")"
+    <strong>number:</strong> [0-9]+
+
+    <strong>variable:</strong> [a-Z]</pre>
+        <div class="terminal-alert" style="margin-left: 0.5em;margin-right: 0.5em; ">Examples:
+            <ol>
                 <li>(lambda x. x) 1</li>
                 <li>(lambda x. x 10) (lambda y.y)</li>
-                <li>(lambda x. x 5) (lambda y. 1)</li>
-            </ul>
+                <li>(lambda x. 5 x) (lambda y. 1)</li>
+                <li>(lambda x. (lambda y.y) x) (lambda z. z)</li>
+            </ol>
         </div>
         <div class="form-group" style="margin-left: 0.5em; margin-top: 10px;width:80%">   
             
@@ -36,10 +51,10 @@
       
         </div>
         
-        <div id="results" class="terminal-alert terminal-alert-primary" style="margin-left: 0.5em;margin-right: 0.5em; ">           
-            <ul *ngFor="let derivate of results">
-                <li>  {{ derivate }}  </li>
-            </ul>
+        <div id="results" style="margin-left: 0.5em;margin-right: 0.5em; color: green;">           
+            <dl *ngFor="let derivate of results">
+                <dd>  {{ derivate }}  </dd>
+            </dl>
         </div>
 
        <footer style="margin-left: 0.5em;"> © Camilo Chacón Sartori, 2020.</footer>
