@@ -34,16 +34,16 @@
     <strong>variable:</strong> [a-Z] ([0-9])?</pre>
 
         <div class="terminal-alert" style="margin-left: 0.5em;margin-right: 0.5em; ">Examples:
-            <ol>
+            <ol style="padding: 0; margin: 0">
                 <li>(lambda x. x) 1</li>
                 <li>(lambda x. x 10) (lambda y.y)</li>
                 <li>(lambda x. (lambda y.y) x) (lambda z. z)</li>
-                <li>(lambda f. ((lambda x2.(f x2)) (lambda x1.(f (x1 x1))))) (lambda x.x)</li>
+                <li>(lambda f. ((lambda x2.(f (x2 x2))) (lambda x1.(f (x1 x1))))) (lambda x.x) </li>
             </ol>
         </div>
         <div class="form-group" style="margin-left: 0.5em; margin-top: 10px;width:80%">   
             
-                <input [(ngModel)]="query" id="text" name="text" type="text" required="" minlength="5" placeholder="(lambda x.x) 1" style="width:50%" >
+                <input [(ngModel)]="query" id="text" name="text" type="text" required="" minlength="5" placeholder="(lambda x.x) 1" style="width:70%" >
 
                 <button 
                 style="margin-left: 0.5em; text-align: center;" 
@@ -52,9 +52,9 @@
       
         </div>
         
-        <div id="results" style="margin-left: 0.5em;margin-right: 0.5em; color: green; padding-top: 0;">           
+        <div id="results" style="margin-left: 0.5em;margin-right: 0.5em; color: green; padding-top: 0; margin-bottom: 5em;">           
             <dl *ngFor="let derivate of results" style="margin:0;padding:0">
-                <dd style="line-height: .9em;">  {{ derivate }}  </dd>
+                <dd style="margin:0;line-height: 1em;">  {{ derivate }}  </dd>
             </dl>
         </div>
 
