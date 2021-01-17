@@ -14,6 +14,7 @@ export class AppComponent {
   constructor(private configService: ConfigService) {}
 
   run() {
+    this.results =  ["Cargando..."];
     console.log(this.query)
     this.configService.getResults(this.query)
     .subscribe((data: Array<string>) => {

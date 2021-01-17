@@ -18,9 +18,11 @@
               
             </div>
         </div>
-
-
-        <pre class="terminal-alert" style="margin-left: 0.5em;margin-right: 0.5em; "> <strong>BNF:</strong>
+    <div class="terminal-card" style="margin-left: 0.5em;margin-right: 0.5em; ">
+        <header style="background-color:lightgoldenrodyellow; color: black;">Información</header>
+        <div> Este intérprete fue desarrollado para el libro: Computación y programación funcional. Editorial Marcombo. Véase más información <a href="https://camilochs.github.io/web/#libro">aquí</a>.</div>
+    </div>
+    <pre class="terminal-alert" style="margin-left: 0.5em;margin-right: 0.5em; "> <strong>BNF:</strong>
     <strong>exprs:</strong>  constant  
             | variable
             | "(" exprs exprs ")"
@@ -33,7 +35,7 @@
 
     <strong>variable:</strong> [a-Z] ([0-9])?</pre>
 
-        <div class="terminal-alert" style="margin-left: 0.5em;margin-right: 0.5em; ">Examples:
+        <div class="terminal-alert" style="margin-left: 0.5em;margin-right: 0.5em; ">Ejemplos:
             <ol style="padding: 0; margin: 0">
                 <li>(lambda x. x) 1</li>
                 <li>(lambda x. x 10) (lambda y.y)</li>
@@ -43,22 +45,22 @@
         </div>
         <div class="form-group" style="margin-left: 0.5em; margin-top: 10px;width:80%">   
             
-                <input [(ngModel)]="query" id="text" name="text" type="text" required="" minlength="5" placeholder="(lambda x.x) 1" style="width:70%" >
+                <input [(ngModel)]="query" id="text" name="text" type="text" required="" minlength="5" placeholder="(lambda x.x) 1" style="width:80%;font-size:x-large;background-color: lightskyblue;" >
 
                 <button 
-                style="margin-left: 0.5em; text-align: center;" 
+                style="margin-left: 0.5em; text-align: center;width:15%;font-size:x-large;" 
                 class="btn btn-primary" type="submit" role="button" 
-                name="submit" id="submit"  (click)="run()">Run </button>
+                name="submit" id="submit" (keyup.enter)="run()" (click)="run()">Ejecutar</button>
       
         </div>
         
-        <div id="results" style="margin-left: 0.5em;margin-right: 0.5em; color: green; padding-top: 0; margin-bottom: 5em;">           
-            <dl *ngFor="let derivate of results" style="margin:0;padding:0">
+        <div id="results" style="margin-left: 0.5em;margin-right: 0.5em;  padding-top: 0; margin-bottom: 5em;">           
+            <dl *ngFor="let derivate of results" style="margin:0;padding:0;font-size: x-large;color: lightskyblue;">
                 <dd style="margin:0;line-height: 1em;">  {{ derivate }}  </dd>
             </dl>
         </div>
 
-       <footer style="margin-left: 0.5em;"> © Camilo Chacón Sartori, 2020.</footer>
+       <footer style="margin-left: 0.5em;"> © Camilo Chacón Sartori, 2020. </footer>
        
     </body>
 </html>
